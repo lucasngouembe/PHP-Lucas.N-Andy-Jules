@@ -10,6 +10,7 @@ $work = new Works;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a href="newwork.php">Ajouter un projet</a>
     <title>php</title>
 </head>
 <body>
@@ -28,9 +29,19 @@ $work = new Works;
         $allworks = $work->get_works();
         foreach($allworks as $w)
         {
-            echo($w["title"]);
-            echo("|");
-            echo($w["description"]);
+            ?>
+            <p>
+                <a href="editwork.php?id=<?= $w["id"] ?>">
+                    <?php
+                        echo($w["title"]);
+                    ?>
+                </a>
+                <?php
+                    echo(" | ");
+                    echo($w["description"]);
+                ?>
+            </p>
+            <?php
         }
 
     ?>

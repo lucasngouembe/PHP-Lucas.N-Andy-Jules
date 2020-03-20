@@ -50,6 +50,17 @@ class Works {
         return($user);
     }
 
+    function get_work($id)
+    {
+        global $db;
+
+        $request = "SELECT * FROM works WHERE id = $id";
+        $resultat = $db->query($request);
+        $work = $resultat->fetch();
+
+        return($work);
+    }
+
     function create($title, $description)
     {
         global $db;
